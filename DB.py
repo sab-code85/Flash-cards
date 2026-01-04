@@ -7,14 +7,14 @@ class DB:
     def __init__(self):
 
         self.base = sqlite3.connect('My_DB.db')
-        self.cur = self.base.cursor
+        self.cur = self.base.cursor()
 
-    def create_table(self, x):
+    def create_table(self, name_table):
+        self.name_table = name_table
         self.base.execute('CREATE TABLE IF NOT EXISTS '
-                          '{}(word, translate, memorize_count)'.format(x))
+                          '{}(word PRIMARY KEY, translate, memorize_count)'.format(name_table))
 
-        pass
-
-    def save_to_BD(self):
-        '''save card to data base'''
-        pass
+    def save_to_table(self, world_value, translate_value):
+        self.cur.execute('INSERT INTO {} VALUES (?,?,?)'.format(self.name_table),
+                         ('{}'.format(world_value), '{}'.format(translate_value), 100))
+        self.base.commit()
