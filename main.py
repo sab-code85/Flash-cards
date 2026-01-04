@@ -8,6 +8,7 @@
 from DB import *
 from tkinter import *
 
+create_DB('Cards')
 
 # описание окна
 main_window = Tk()
