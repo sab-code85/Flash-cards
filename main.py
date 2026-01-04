@@ -8,7 +8,10 @@
 from DB import *
 from tkinter import *
 
-create_DB('Cards')
+
+My_DB = DB()
+My_DB.create_table('Flash_cards')
+# My_DB.create_table
 
 # описание окна
 main_window = Tk()
@@ -17,7 +20,7 @@ main_window.geometry('500x500+1000+200')
 word_field = Entry(width=30)  # окно ввода слова
 translate_field = Entry(width=30)  # окно ввода слова перевода
 Saver_button = Button(text='Сохранить')
-Saver_button.bind('<Button-1>', save_to_BD())
+Saver_button.bind('<Button-1>', My_DB.save_to_BD())
 
 # вывод на экран
 word_field.place(x=100, y=100)

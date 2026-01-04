@@ -1,13 +1,20 @@
-def create_DB(name_DB):
-    import sqlite3
-    base = sqlite3.connect(f'{name_DB}.db')
-    cur = base.cursor
+import sqlite3
 
 
-def create_table():
-    pass
+class DB:
+    """ База данных """
 
+    def __init__(self):
 
-def save_to_BD():
-    '''save card to data base'''
-    pass
+        self.base = sqlite3.connect('My_DB.db')
+        self.cur = self.base.cursor
+
+    def create_table(self, x):
+        self.base.execute('CREATE TABLE IF NOT EXISTS '
+                          '{}(word, translate, memorize_count)'.format(x))
+
+        pass
+
+    def save_to_BD(self):
+        '''save card to data base'''
+        pass
