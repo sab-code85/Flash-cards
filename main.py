@@ -12,16 +12,23 @@ My_DB.create_table('Flash_cards')
 main_window = Tk()
 main_window.title('Флеш-карты')
 main_window.geometry('500x500+1000+200')
-word_field = Entry(width=30, validate='key')  # окно ввода слова
+word_field = Entry(width=30)  # окно ввода слова
 word_field.place(x=100, y=100)
-translate_field = Entry(width=30, validate='key')  # окно ввода слова перевода
-# добавляем карточку в таблицу БД
+translate_field = Entry(width=30)  # окно ввода перевода
+translate_field.place(x=100, y=200)
+
+
+def save_new_card(event):  # событие добавления данных из полей
+    w = word_field.get()
+    t = translate_field.get()
+    My_DB.save_to_table(w, t)
+
+
+# создаем кнопку для добавления карточки в таблицу БД
 Saver_button = Button(text='Сохранить')
-Saver_button.bind(
-    '<Button-1>', My_DB.save_to_table(world_value=word_field.get()))
+Saver_button.bind('<Button-1>', save_new_card)
 Saver_button.place(x=100, y=300)
 
+
 # вывод на экран
-word_field.place(x=100, y=100)
-translate_field.place(x=100, y=200)
 main_window.mainloop()

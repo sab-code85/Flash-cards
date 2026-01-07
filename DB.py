@@ -14,7 +14,7 @@ class DB:
         self.base.execute('CREATE TABLE IF NOT EXISTS '
                           '{}(word PRIMARY KEY, translate, memorize_count)'.format(name_table))
 
-    def save_to_table(self, world_value):
+    def save_to_table(self, word_value, translate_value):
         self.cur.execute('INSERT INTO {} VALUES (?,?,?)'.format(self.name_table),
-                         ('{}'.format(world_value), '544556', 100))
+                         ('{}'.format(word_value), '{}'.format(translate_value), 100))
         self.base.commit()
