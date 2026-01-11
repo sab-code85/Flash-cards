@@ -10,7 +10,7 @@ My_DB.create_table('Flash_cards')
 
 # описание окна
 main_window = Tk()
-main_window.title('Флеш-карты')
+main_window.title('Флеш-карты новые')
 main_window.geometry('500x500+1000+200')
 word_field = Entry(width=30)  # окно ввода слова
 word_field.place(x=100, y=100)
