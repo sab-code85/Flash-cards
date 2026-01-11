@@ -1,7 +1,7 @@
 
 from DB import *
 from tkinter import *
-
+print('1')
 # создание базы и таблицы для карт
 My_DB = DB()
 My_DB.create_table('Flash_cards')
