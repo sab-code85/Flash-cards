@@ -1,6 +1,7 @@
-
-from DB import *
 from tkinter import *
+from DB import *
+print('test')
+print('hi')
 
 # создание базы и таблицы для карт
 My_DB = DB()
