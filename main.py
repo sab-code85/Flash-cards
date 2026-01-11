@@ -2,6 +2,7 @@ from tkinter import *
 from DB import *
 print('test')
 print('hi')
+print('deep test')
 
 # создание базы и таблицы для карт
 My_DB = DB()
